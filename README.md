@@ -119,7 +119,7 @@ calculates the no-change probabilities
 region of interest (ROI) and outputs a table such as Table 1
 (or Table 2). It also plots histograms for the no-change
 probabilities in the ROI. These histograms are flat for a
-ROI with no change(the distribution of 1−P is uniform).
+ROI with no change (the distribution of 1−P is uniform).
 You may input a ROI image or a color image on which to
 draw a ROI polygon.
 
