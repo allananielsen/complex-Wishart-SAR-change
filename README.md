@@ -111,7 +111,7 @@ significance level).
 wc_Ptable
 calculates the no-change probabilities
 (1−P) from the structure wc output by wcRjl for a
-region of interest (ROI) and outputs a table suchas Table 1
+region of interest (ROI) and outputs a table such as Table 1
 (or Table 2). It also plots histograms for the no-change
 probabilities in the ROI. These histograms are flat for a
 ROI with no change(the distribution of 1−P is uniform).
