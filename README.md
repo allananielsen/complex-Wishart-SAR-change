@@ -1,5 +1,6 @@
 Matlab code for detection of change in polarimetric SAR data
 in the covariance matrix formulation with auxiliary code.
+See my homepage https://people.compute.dtu.dk/alan under Publications.
 
 Here some of the functions are mentioned.
 
