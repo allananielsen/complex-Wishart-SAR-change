@@ -26,13 +26,10 @@ polarimetry (including reflection symmetry and diagonal
 only),and dual polarimetry (including diagonal only).
 
 wishart_change_Q
-calculates lnQ and the
+calculates the logarithm of the test statistic Q and the
 p-value to test for equality of k ≥ 2 covariance matrices
 in the full and dual polarimetry cases and of single band
 power data (any polarization).
-
-wishart_change_Q
-calculates the logarithm of the test statistic Q.
 
 wishart_change_Rj
 calculates the logarithm of the test statistics Q and Rj, and the
@@ -74,6 +71,13 @@ For large data sets the structure wc takes up a lot of
 computer memory. You may want to output wc.P only.
 Also, you may want to store this in 4- as opposed to 8-byte
 precision.
+
+wc_Q
+like wishart_change_Q calculates the logarithm of the test statistic Q and the
+p-value to test for equality of k ≥ 2 covariance matrices
+in the full and dual polarimetry cases and of single band
+power data (any polarization).
+Like wcRjl, wc_Q outputs results to a struct wc, see above.
 
 wishart_change_Rj_updt
 given data from k time points wishart_change_Rj_updt based on
