@@ -9,7 +9,9 @@ freadenvisar
 reads covariance matrix polarimetric
 SAR data (with an ENVI-like header file) from disk
 and stores them in the order needed for the change
-detection programs. You may need to change the file names in
+detection programs.
+SAR images are stored in 3D arrays: rows by columns by matrix elements.
+You may need to change the file names in
 the code. Also, some files are written in row major order
 and some in column major order, so there may be an issue
 with transposing the images read.\
@@ -29,8 +31,13 @@ bands   = 6\
 data type = 4\
 interleave = bsq\
 %\
-Although there are 9 non-complex files, there are
-6 matrix elements only, hence "bands = 6" in the hdr-file.
+Although there are 9 non-complex elements, there are
+6 matrix elements only read from 3 files with real numbers
+and 3 files with complex numbers, hence "bands = 6" in the hdr-file.\
+%\
+To be used with for example wc_Q below, the 3D SAR image arrays, say,
+SAR1, SAR2 and SAR3, must be concatenated along a fourth dimension:\
+SAR = cat(4,SAR1,SAR2,SAR3);
 
 rho_hhvv
 calculates the complex correlation
