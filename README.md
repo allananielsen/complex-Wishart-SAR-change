@@ -26,7 +26,9 @@ a vector with nine real (i.e., non-complex) elements, namely\
 [ShhShh* Re(ShhShv*) Im(ShhShv*) Re(ShhSvv*) Im(ShhSvv*)
  ShvShv* Re(ShvSvv*) Im(ShvSvv*) SvvSvv*]\
 %\
-NOTE : freadenvisar needs the corresponding image header file generated automatically by ENVI. The ENVI header file must have the same name as the ENVI image file + the '.hdr' extension.
+NOTE : freadenvisar needs a corresponding image header file generated automatically by ENVI
+or written manually.
+The ENVI header file must have the same name as the ENVI image file + the '.hdr' extension.
 Example hdr-file:\
 %\
 samples = 1024\
