@@ -12,7 +12,7 @@ and stores them in the order needed for the change
 detection programs. You may need to change the file names in
 the code. Also, some files are written in row major order
 and some in column major order, so there may be an issue
-with transposing the images read.
+with transposing the images read.\
 %
 % SAR input images are images of the (row-wise) upper-right elements of
 % the covariance (or coherency) matrix, e.g. for full polarimetry:
