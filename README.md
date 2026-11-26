@@ -13,13 +13,13 @@ detection programs. You may need to change the file names in
 the code. Also, some files are written in row major order
 and some in column major order, so there may be an issue
 with transposing the images read.\
-%
+%\
 % SAR input images are images of the (row-wise) upper-right elements of
 % the covariance (or coherency) matrix, e.g. for full polarimetry:
-% a vector with nine real (i.e., non-complex) elements, namely
+% a vector with nine real (i.e., non-complex) elements, namely\
 % [ShhShh* Re(ShhShv*) Im(ShhShv*) Re(ShhSvv*) Im(ShhSvv*) ...
 %   ShvShv* Re(ShvSvv*) Im(ShvSvv*) SvvSvv*]
-%
+%\
 % NOTE : freadenvisar needs the corresponding image header file generated
 %		 automatically by ENVI. The ENVI header file must have the same name
 %		 as the ENVI image file + the '.hdr' extension.
