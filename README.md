@@ -89,7 +89,8 @@ which contains:
 For ℓ= 1, all time points are considered
 for ℓ= 2, all time points omitting the first are considered;
 for ℓ= 3, all time points omitting the two first are considered,
-and so on. The structure may optionally contain:
+and so on.\
+The structure may optionally contain:
 - wc(ℓ).sumMat (the sum of X<sub>i</sub> for i=1,...,j)
 and
 - wc(ℓ).logDet (the logarithm of the determinant
