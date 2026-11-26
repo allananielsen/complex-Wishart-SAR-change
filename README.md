@@ -93,7 +93,7 @@ For ℓ= 1, all time points are considered
 for ℓ= 2, all time points omitting the first are considered;
 for ℓ= 3, all time points omitting the two first are considered,
 and so on.
-[^1]: https://doi.org/10.1080/07038992.2017.1394182
+[^1]: https://doi.org/10.1080/07038992.2017.1394182 or https://backend.orbit.dtu.dk/ws/portalfiles/portal/255059842/IGARSS2020ABC.pdf
 
 The structure may optionally contain:
 - wc(ℓ).sumMat (the sum of X<sub>i</sub> for i=1,...,j)
