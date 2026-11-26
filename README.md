@@ -15,23 +15,22 @@ and some in column major order, so there may be an issue
 with transposing the images read.\
 %\
 % SAR input images are images of the (row-wise) upper-right elements of
-% the covariance (or coherency) matrix, e.g. for full polarimetry:
-% a vector with nine real (i.e., non-complex) elements, namely\
-% [ShhShh* Re(ShhShv*) Im(ShhShv*) Re(ShhSvv*) Im(ShhSvv*) ...
-%   ShvShv* Re(ShvSvv*) Im(ShvSvv*) SvvSvv*]
+the covariance (or coherency) matrix, e.g. for full polarimetry:
+a vector with nine real (i.e., non-complex) elements, namely\
+[ShhShh* Re(ShhShv*) Im(ShhShv*) Re(ShhSvv*) Im(ShhSvv*) ...
+ ShvShv* Re(ShvSvv*) Im(ShvSvv*) SvvSvv*]
 %\
-% NOTE : freadenvisar needs the corresponding image header file generated
-%		 automatically by ENVI. The ENVI header file must have the same name
-%		 as the ENVI image file + the '.hdr' extension.
-% Example hdr-file (although there are 9 non-complex files, there are
-% 6 matrix elements only, hence "bands = 6" in the hdr-file):
-%
-% samples = 1024
-% lines   = 1024
-% bands   = 6
-% data type = 4
-% interleave = bsq
-
+NOTE : freadenvisar needs the corresponding image header file generated automatically by ENVI. The ENVI header file must have the same name as the ENVI image file + the '.hdr' extension.
+Example hdr-file:\
+%\
+samples = 1024\
+lines   = 1024\
+bands   = 6\
+data type = 4\
+interleave = bsq\
+%\
+Although there are 9 non-complex files, there are
+6 matrix elements only, hence "bands = 6" in the hdr-file.
 
 rho_hhvv
 calculates the complex correlation
