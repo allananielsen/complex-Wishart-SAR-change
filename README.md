@@ -1,8 +1,11 @@
-Matlab code for detection of change in polarimetric SAR data
+Here we give Matlab code for detection of change in polarimetric SAR data
 in the covariance matrix formulation with auxiliary code.
-See my homepage https://people.compute.dtu.dk/alan under Publications.
 
-Here some of the functions are mentioned.
+This README file is preliminary, I hope to update it if not sooner then later.
+
+For references, see my homepage https://people.compute.dtu.dk/alan under Publications.
+
+Here some of the functions are mentioned:
 
 
 **freadenvisar**
@@ -38,8 +41,7 @@ and 3 files with complex numbers, hence "bands = 6" in the hdr-file.\
 %\
 To be used with for example **wc_Q** and **wcRjl** below, the 3D SAR image arrays, say,
 SAR1, SAR2 and SAR3 from 3 time points, must be concatenated along a fourth dimension resulting in a 4D array,
-rows by columns by matrix elements by time point:\
-SAR = cat(4,SAR1,SAR2,SAR3);
+rows by columns by matrix elements by time point: cat(4,SAR1,SAR2,SAR3);
 
 **rho_hhvv**
 calculates the complex correlation
@@ -58,6 +60,7 @@ calculates the logarithm of the test statistic Q and the
 p-value to test for equality of k ≥ 2 covariance matrices
 in the full and dual polarimetry cases and of single band
 power data (any polarization).
+The p-value is the probability of change.
 
 **wishart_change_Rj**
 calculates the logarithm of the test statistics Q and R<sub>j</sub>, and the
@@ -73,7 +76,7 @@ not fit into computer memory.
 is a wrapper which calls **wishart_change_Rj**
 several times, first with data from all
 time points (which generates output for the second column
-of Table 1), then with data from all time points
+of Table 1 in [^1]), then with data from all time points
 omitting the first (which generates output for the third
 column of Table 1), then with data from all time points
 omitting the 2 first (which generates output for the fourth
@@ -82,14 +85,16 @@ which contains:
 - wc(ℓ).lnR (lnQ and lnRj; lnQ is stored in
   lnR(:,:,1),lnR2 inlnR(:,:,2),etc.),
 - wc(ℓ).f (f),
-- wc(ℓ).rho (ρ and ρj),
+- wc(ℓ).rho (ρ and ρ<sub>j</sub>),
 - wc(ℓ).omega2 (ω<sub>2</sub> and ω<sub>2j</sub>),and
 - wc(ℓ).P (p-values, stored in the same fashion as
   lnQ and lnRj).
 For ℓ= 1, all time points are considered
 for ℓ= 2, all time points omitting the first are considered;
 for ℓ= 3, all time points omitting the two first are considered,
-and so on.\
+and so on.
+[^1]: https://doi.org/10.1080/07038992.2017.1394182
+
 The structure may optionally contain:
 - wc(ℓ).sumMat (the sum of X<sub>i</sub> for i=1,...,j)
 and
@@ -106,7 +111,7 @@ like **wishart_change_Q** calculates the logarithm of the test statistic Q and t
 p-value to test for equality of k ≥ 2 covariance matrices
 in the full and dual polarimetry cases and of single band
 power data (any polarization).
-Like **wcRjl**, **wc_Q** outputs results to a struct wc, see above.
+Like **wcRjl**, **wc_Q** outputs results to a structure wc, see **wcRjl**.
 
 **wishart_change_Rj_updt**
 given data from k time points **wishart_change_Rj_updt** based on
@@ -158,31 +163,29 @@ outputs a table such as Table 1. It also plots sample
 histograms and theoretical distributions for the these
 quantities in the ROI.
 
-\begin{itemize}
-\item
-{\tt \bfseries wishart\_rand} generates one or more SAR scenes in the covariance matrix formulation with specified ENL and \bm{\Sigma}.
+**wishart_rand** generates one or more SAR scenes in the covariance matrix formulation with specified ENL and **&Sigma;**.
 To obtain Wishart distributed data we must multiply the generated data by ENL.
-\item
-{\tt \bfseries wishart\_rand\_patch} generates a  SAR scene in the covariance matrix formulation consisting of a number of patches all with the same specified size and ENL.
-As for {\tt \bfseries wishart\_rand} above
+
+**wishart_rand_patch** generates a  SAR scene in the covariance matrix formulation consisting of a number of patches all with the same specified size and ENL.
+As for **wishart_rand** above
 to obtain Wishart distributed data we must multiply the generated data by ENL.
-Each patch has an individually specified \bm{\Sigma} which is read from a pixel in a SAR image either by ``clicking the mouse'' or by specifying row and column number
-(remember that each pixel in a  SAR image in the covariance matrix formulation consists of a Hermitian covariance matrix).
-An auxiliary Matlab function {\tt \bfseries polsar\_find\_coord} can be used to find row and column numbers for a number of potentially interesting pixels.
+Each patch has an individually specified **&Sigma;** which is read from a pixel in a SAR image either by "clicking the mouse" or by specifying row and column number
+(remember that each pixel in a SAR image in the covariance matrix formulation consists of a Hermitian covariance matrix).
+
+**polsar_find_coord** can be used to find row and column numbers for a number of potentially interesting pixels.
 An interesting pixel is for example one with
-maximum or minimum $S_{hh}S_{hh}^*$ (divided by the trace),
-%maximum or minimum $S_{hh}S_{vv}^*$ (divided by the trace),
-maximum or minimum trace,
+- maximum or minimum S_{hh}S_{hh}* (divided by the trace),
+- maximum or minimum trace,
+- maximum or minimum determinant etc.
+- maximum or minimum norm of the complex correlation <!\langle S_{hh}S_{vv}^* \rangle / \sqrt{\langle S_{hh}S_{hh}^* \rangle \langle S_{vv}S_{vv}^* \rangle}>
 or
-maximum or minimum determinant etc.
-\item
-{\tt \bfseries wishart\_rand\_scene} reads a SAR scene in the covariance matrix formulation and generates one or more new realisations of the original scene, all with the same size as the original scene based on \bm{\Sigma} read from each pixel in the original scene.
-As for {\tt \bfseries wishart\_rand} above
+- maximum single and double bounce, and volume scattering (as calculated by the eigenvalues in the van Zyl decomposition or from the Pauli representation).
+
+**wishart_rand_scene** reads a SAR scene in the covariance matrix formulation and generates one or more new realisations of the original scene, all with the same size as the original scene based on **&Sigma;** read from each pixel in the original scene.
+As for **wishart_rand** above
 to obtain Wishart distributed data we must multiply the generated data by ENL.
-\item
-{\tt \bfseries wishart\_rand\_segment} reads one or more SAR scene(s) and an image with segments
+
+**wishart_rand_segment** reads one or more SAR scene(s) and an image with segments
 of that (those) scene(s),
 one segment only also allowed.
 It then generates as many scenes as read from the original SAR input, where covariance matrices in all pixels in all segments are replaced by generated realisations of the mean covariance matrix for the original segments.
-\end{itemize}
-
