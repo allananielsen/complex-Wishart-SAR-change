@@ -7,7 +7,9 @@ This README file is preliminary, I hope to update it if not sooner then later.
 
 For references, see my homepage https://people.compute.dtu.dk/alan under Publications.
 The main reference is [^1].
+Another reference, only four pages, is [^2].
 [^1]: https://doi.org/10.1109/JSTARS.2024.3453442
+[^2]: https://backend.orbit.dtu.dk/ws/portalfiles/portal/255059842/IGARSS2020ABC.pdf
 
 Here some of the functions are mentioned:
 
@@ -82,7 +84,7 @@ not fit into computer memory.
 is a wrapper which calls **wishart_change_Rj**
 several times, first with data from all
 time points (which generates output for the second column
-of Table 1 in [^2] or [^3]), then with data from all time points
+of Table 1 in [^3]), then with data from all time points
 omitting the first (which generates output for the third
 column of Table 1), then with data from all time points
 omitting the 2 first (which generates output for the fourth
@@ -99,8 +101,7 @@ For ℓ= 1, all time points are considered
 for ℓ= 2, all time points omitting the first are considered;
 for ℓ= 3, all time points omitting the two first are considered,
 and so on.
-[^2]: https://doi.org/10.1080/07038992.2017.1394182
-[^3]: https://backend.orbit.dtu.dk/ws/portalfiles/portal/255059842/IGARSS2020ABC.pdf
+[^3]: https://doi.org/10.1080/07038992.2017.1394182
 
 The structure may optionally contain:
 - wc(ℓ).sumMat (the sum of X<sub>i</sub> for i=1,...,j)
