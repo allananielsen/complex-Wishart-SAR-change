@@ -36,8 +36,9 @@ Although there are 9 non-complex elements, there are
 6 matrix elements only read from 3 files with real numbers
 and 3 files with complex numbers, hence "bands = 6" in the hdr-file.\
 %\
-To be used with for example wc_Q below, the 3D SAR image arrays, say,
-SAR1, SAR2 and SAR3, must be concatenated along a fourth dimension:\
+To be used with for example wc_Q and wcRjl below, the 3D SAR image arrays, say,
+SAR1, SAR2 and SAR3 from 3 time points, must be concatenated along a fourth dimension resulting in a 4D array:
+rows by columns by matrix elements by time point\
 SAR = cat(4,SAR1,SAR2,SAR3);
 
 rho_hhvv
